@@ -11,7 +11,18 @@
 	"overrideFeatureInstallOrder": [
 		"ghcr.io/devcontainers-extra/features/pnpm",
 		"ghcr.io/joshuanianji/devcontainer-features/mount-pnpm-store"
-	]
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode"
+			],
+			"settings": {
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"editor.formatOnSave": true
+			}
+		}
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
