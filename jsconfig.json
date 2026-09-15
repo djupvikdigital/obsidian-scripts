@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "module": "commonjs",
+    "moduleResolution": "bundler",
+    "target": "esnext"
+  },
+  "include": ["vite.config.js", "src/**/*.js"],
+  "exclude": ["node_modules"]
+}
