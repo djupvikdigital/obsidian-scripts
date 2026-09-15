@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const datePathFormat = 'YYYY/MM/DD'
 
 function dateToPath(date) {
@@ -36,4 +38,4 @@ function pathToDates(path) {
   }
 }
 
-module.exports = { dateToPath, formatIsoDate, formatReadableDate, pathToDates }
+export default { dateToPath, formatIsoDate, formatReadableDate, pathToDates }
