@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { describe, expect, it } from 'vitest'
 
-import calendar from './calendar.js'
+import * as calendar from './calendar.js'
 
 describe('dateToPath', () => {
   it('formats a moment date as a path', () => {

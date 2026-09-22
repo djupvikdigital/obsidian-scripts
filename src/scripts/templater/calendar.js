@@ -8,7 +8,7 @@ const datePathFormat = 'YYYY/MM/DD'
  * @param {moment.Moment} date
  * @returns {string}
  */
-function dateToPath(date) {
+export function dateToPath(date) {
   return date.format(datePathFormat)
 }
 
@@ -18,7 +18,7 @@ function dateToPath(date) {
  * @param {moment.Moment} date
  * @returns {string}
  */
-function formatIsoDate(date) {
+export function formatIsoDate(date) {
   return date.format('YYYY-MM-DD')
 }
 
@@ -28,7 +28,7 @@ function formatIsoDate(date) {
  * @param {moment.Moment} date
  * @returns {string}
  */
-function formatReadableDate(date) {
+export function formatReadableDate(date) {
   return date.format('D.M.YYYY')
 }
 
@@ -38,7 +38,7 @@ function formatReadableDate(date) {
  * @param {string} path
  * @returns {{ today: moment.Moment, yesterday: moment.Moment, tomorrow: moment.Moment }}
  */
-function pathToDates(path) {
+export function pathToDates(path) {
   let today, yesterday, tomorrow
   if (typeof path === 'string') {
     const dateIndex = path.search(/\d{4}\/\d{2}\/\d{2}/)
@@ -61,5 +61,3 @@ function pathToDates(path) {
     tomorrow,
   }
 }
-
-export default { dateToPath, formatIsoDate, formatReadableDate, pathToDates }
