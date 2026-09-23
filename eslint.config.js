@@ -6,12 +6,16 @@ import prettier from 'eslint-config-prettier/flat'
 import { importX } from 'eslint-plugin-import-x'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
+import globals from 'globals'
 
 export default defineConfig(
   eslint.configs.recommended,
   importX.flatConfigs.recommended,
   eslintPluginUnicorn.configs.unopinionated,
   {
+    languageOptions: {
+      globals: globals.node,
+    },
     plugins: {
       'simple-import-sort': simpleImportSort,
     },

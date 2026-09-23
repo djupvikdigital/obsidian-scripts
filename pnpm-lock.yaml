@@ -191,6 +191,9 @@ importers:
       eslint-plugin-unicorn:
         specifier: ^76.0.0
         version: 76.0.0(eslint@10.11.0)
+      globals:
+        specifier: ^17.12.0
+        version: 17.12.0
       prettier:
         specifier: ^3.9.6
         version: 3.9.6
