@@ -8,10 +8,30 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import globals from 'globals'
 
+import { templaterPlugin } from './src/templater-eslint-plugin.js'
+
 export default defineConfig(
   eslint.configs.recommended,
   importX.flatConfigs.recommended,
   eslintPluginUnicorn.configs.unopinionated,
+  {
+    files: ['**/*.md'],
+    plugins: {
+      templater: templaterPlugin,
+    },
+    processor: 'templater/extract',
+  },
+  {
+    files: ['**/*.md/*.js'],
+    languageOptions: {
+      globals: {
+        tp: 'readonly',
+      },
+    },
+    rules: {
+      'unicorn/filename-case': 'off',
+    },
+  },
   {
     languageOptions: {
       globals: globals.node,
