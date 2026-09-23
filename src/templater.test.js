@@ -1,12 +1,13 @@
 import fs from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 
-import * as calendar from './scripts/templater/calendar.js'
 import init, {
   ParserConfig,
   Renderer,
 } from '@silentvoid13/rusty_engine/rusty_engine.js'
-import { it, expect, describe } from 'vitest'
+import { describe, expect, it } from 'vitest'
+
+import * as calendar from './scripts/templater/calendar.js'
 
 /**
  * @param {string} path
@@ -62,7 +63,7 @@ describe('templates', () => {
     const renderer = new Renderer(config)
     const files = await getFiles(templatesPath)
     for (const file of files) {
-      const content = await fs.readFile(file, 'utf-8')
+      const content = await fs.readFile(file, 'utf8')
       const rendered = await renderer.render_content(
         content,
         createTemplateContext(),

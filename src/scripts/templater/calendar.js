@@ -39,7 +39,7 @@ export function formatReadableDate(date) {
  * @returns {{ today: moment.Moment, yesterday: moment.Moment, tomorrow: moment.Moment }}
  */
 export function pathToDates(path) {
-  let today, yesterday, tomorrow
+  let today
   if (typeof path === 'string') {
     const dateIndex = path.search(/\d{4}\/\d{2}\/\d{2}/)
     if (~dateIndex) {
@@ -53,8 +53,8 @@ export function pathToDates(path) {
   if (!today || !today.isValid()) {
     today = moment()
   }
-  yesterday = today.clone().subtract(1, 'day')
-  tomorrow = today.clone().add(1, 'day')
+  const yesterday = today.clone().subtract(1, 'day')
+  const tomorrow = today.clone().add(1, 'day')
   return {
     today,
     yesterday,
