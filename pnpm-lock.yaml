@@ -170,6 +170,9 @@ importers:
         specifier: ^2.30.1
         version: 2.30.1
     devDependencies:
+      '@silentvoid13/rusty_engine':
+        specifier: ^0.4.0
+        version: 0.4.0
       prettier:
         specifier: ^3.9.6
         version: 3.9.6
@@ -587,6 +590,9 @@ packages:
     resolution: {integrity: sha512-+lIKX7O0+IGe7WuhATaAMMeT7B76vfhXH/l9wLQL+nvyhbw2ohYCKIdWL56JfDu75CWt5oKRP4QFH/jkMtBquA==}
     cpu: [x64]
     os: [win32]
+
+  '@silentvoid13/rusty_engine@0.4.0':
+    resolution: {integrity: sha512-R0IqWLUIiJlP2eKsTebJrFbqifFQ+mUUDiBJSmW7y9maQxsX5GvFIQ9ekjFlLfS+QVUnPiomCmRRNhyr9+dJPA==}
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -1182,6 +1188,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.63.3':
     optional: true
+
+  '@silentvoid13/rusty_engine@0.4.0': {}
 
   '@types/chai@5.2.3':
     dependencies:
