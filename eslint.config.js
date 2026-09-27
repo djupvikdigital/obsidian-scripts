@@ -3,7 +3,7 @@
 import eslint from '@eslint/js'
 import { defineConfig } from 'eslint/config'
 import prettier from 'eslint-config-prettier/flat'
-import { importX } from 'eslint-plugin-import-x'
+import { createNodeResolver, importX } from 'eslint-plugin-import-x'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import globals from 'globals'
@@ -35,6 +35,9 @@ export default defineConfig(
   {
     languageOptions: {
       globals: globals.node,
+    },
+    settings: {
+      'import-x/resolver-next': [createNodeResolver()],
     },
     plugins: {
       'simple-import-sort': simpleImportSort,
