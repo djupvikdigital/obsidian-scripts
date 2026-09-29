@@ -28,17 +28,15 @@ date: 2024-01-02
 tags:
   - dag
 ---
+
 # 2.1.2024
 
 ## Agenda
 
-
-
 ## Oppsummering av dagen
 
-
-
-[← I går](<2 Kalender/2024/01/01>) | [I morgen →](<2 Kalender/2024/01/03>)"
+[← I går](<2 Kalender/2024/01/01>) | [I morgen →](<2 Kalender/2024/01/03>)
+"
 `;
 
 exports[`templates > renders and matches snapshots 3`] = `
@@ -48,12 +46,14 @@ date: 2024-01-02
 tags:
   - ordstyrer
 ---
+
 # Ordstyrer 2.1.2024
 
-- Foredragsholder: 
-- Tema: 
-- Sang: 
-- Neste søndag: "
+- Foredragsholder:
+- Tema:
+- Sang:
+- Neste søndag:
+"
 `;
 
 exports[`templates > renders and matches snapshots 4`] = `
@@ -63,11 +63,13 @@ date: 2024-01-02
 tags:
   - reiseplan
 ---
+
 # Reiseplan 2.1.2024
 
 1. Norwegian flight DYxxx til Gardermoen, avreise **00:00** fra Bodø, ankomst **00:00**, referansenummer **x**
 2. Atlantic flight RCxxx til Vágar, avreise **00:00** fra Gardermoen, ankomst **00:00**, referansenummer **x**
-3. Buss 350 til byen, avreise **13:30** fra flyplassen, ankomst busstasjonen **14:30**"
+3. Buss 350 til byen, avreise **13:30** fra flyplassen, ankomst busstasjonen **14:30**
+"
 `;
 
 exports[`templates > renders and matches snapshots 5`] = `
@@ -77,10 +79,12 @@ date: 2024-01-02
 tags:
   - reiseplan
 ---
+
 # Reiseplan 2.1.2024
 
 1. Gå hjemmefra **00:00**
 2. Buss 300 til flyplassen, avgang **00:00** fra fergeterminalen, ankomst **00:00**, gå på ved Mannbrekka
 3. Atlantic Airways flight RCxxx til Gardermoen, avgang fra Vágar **00:00**, ankomst **00:00**, referansenr. **x**
-4. Norwegian flight DYxx til Bodø, avgang fra Gardermoen **00:00**, ankomst **00:00**, referansenr. **x**"
+4. Norwegian flight DYxx til Bodø, avgang fra Gardermoen **00:00**, ankomst **00:00**, referansenr. **x**
+"
 `;

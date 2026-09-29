@@ -24,25 +24,28 @@ describe('formatReadableDate', () => {
   })
 })
 
-describe('pathToDates', () => {
-  it('extracts a date from a path and returns today, yesterday, and tomorrow', () => {
-    const dates = calendar.pathToDates('daily/2024/01/02/note.md')
+describe('getAdjacentDates', () => {
+  it('returns the previous and next dates relative to a given date', () => {
+    const date = moment('2024-01-02', 'YYYY-MM-DD', true)
+    const adjacentDates = calendar.getAdjacentDates(date)
 
-    expect(dates.today.format('YYYY-MM-DD')).toBe('2024-01-02')
-    expect(dates.yesterday.format('YYYY-MM-DD')).toBe('2024-01-01')
-    expect(dates.tomorrow.format('YYYY-MM-DD')).toBe('2024-01-03')
+    expect(adjacentDates.today.format('YYYY-MM-DD')).toBe('2024-01-02')
+    expect(adjacentDates.yesterday.format('YYYY-MM-DD')).toBe('2024-01-01')
+    expect(adjacentDates.tomorrow.format('YYYY-MM-DD')).toBe('2024-01-03')
+  })
+})
+
+describe('pathToDate', () => {
+  it('extracts a date from a path', () => {
+    const date = calendar.pathToDate('daily/2024/01/02/note.md')
+
+    expect(date.format('YYYY-MM-DD')).toBe('2024-01-02')
   })
 
   it('falls back to today if unable to find date in path', () => {
-    const dates = calendar.pathToDates('daily/note.md')
+    const date = calendar.pathToDate('daily/note.md')
 
     const today = moment().format('YYYY-MM-DD')
-    expect(dates.today.format('YYYY-MM-DD')).toBe(today)
-    expect(dates.yesterday.format('YYYY-MM-DD')).toBe(
-      moment().subtract(1, 'day').format('YYYY-MM-DD'),
-    )
-    expect(dates.tomorrow.format('YYYY-MM-DD')).toBe(
-      moment().add(1, 'day').format('YYYY-MM-DD'),
-    )
+    expect(date.format('YYYY-MM-DD')).toBe(today)
   })
 })

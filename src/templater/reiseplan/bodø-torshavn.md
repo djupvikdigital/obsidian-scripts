@@ -1,10 +1,11 @@
 ---
 created: <% tp.file.creation_date() %>
-date: <%* const dates = tp.user.calendar.pathToDates(tp.file.path()); %><% tp.user.calendar.formatIsoDate(dates.today) %>
+date: <%* const date = tp.user.calendar.pathToDate(tp.file.path()); %><% tp.user.calendar.formatIsoDate(date) %>
 tags:
   - reiseplan
 ---
-# Reiseplan <% tp.user.calendar.formatReadableDate(dates.today) %>
+
+# Reiseplan <% tp.user.calendar.formatReadableDate(date) %>
 
 1. Norwegian flight DYxxx til Gardermoen, avreise **00:00** fra Bodø, ankomst **00:00**, referansenummer **x**
 2. Atlantic flight RCxxx til Vágar, avreise **00:00** fra Gardermoen, ankomst **00:00**, referansenummer **x**
