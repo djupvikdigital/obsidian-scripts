@@ -99,11 +99,14 @@ export default defineConfig(({ command }) => ({
     lib: {
       entry: path.resolve(sourceRoot, 'scripts/templater/calendar.js'),
       name: 'calendar',
-      fileName: 'scripts/templater/calendar',
-      formats: ['es'],
+      fileName: 'calendar',
+      formats: ['cjs'],
     },
     rollupOptions: {
       external: ['moment'],
+      output: {
+        entryFileNames: 'scripts/templater/[name].js',
+      },
     },
   },
   plugins:
