@@ -1,6 +1,7 @@
 import moment from 'moment'
 
 const datePathFormat = 'YYYY/MM/DD'
+const isoDateFormat = 'YYYY-MM-DD'
 
 /**
  * Get a file path from a moment date.
@@ -19,7 +20,7 @@ export function dateToPath(date) {
  * @returns {string}
  */
 export function formatIsoDate(date) {
-  return date.format('YYYY-MM-DD')
+  return date.format(isoDateFormat)
 }
 
 /**
@@ -46,6 +47,27 @@ export function getAdjacentDates(today) {
     yesterday,
     tomorrow,
   }
+}
+
+/**
+ * Get the moment date from a file name.
+ *
+ * @param {string} fileName
+ * @returns {moment.Moment}
+ */
+export function fileNameToDate(fileName) {
+  let today
+  if (typeof fileName === 'string') {
+    const hasDate = /^\d{4}-\d{2}-\d{2}/.test(fileName)
+    if (hasDate) {
+      const dateSegment = fileName.slice(0, isoDateFormat.length)
+      today = moment(dateSegment, isoDateFormat, true)
+    }
+  }
+  if (!today || !today.isValid()) {
+    today = moment()
+  }
+  return today
 }
 
 /**

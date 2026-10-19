@@ -35,6 +35,21 @@ describe('getAdjacentDates', () => {
   })
 })
 
+describe('fileNameToDate', () => {
+  it('extracts a date from the start of a filename', () => {
+    const date = calendar.fileNameToDate('2024-01-02 note.md')
+
+    expect(date.format('YYYY-MM-DD')).toBe('2024-01-02')
+  })
+
+  it('falls back to today if unable to find date in path', () => {
+    const date = calendar.fileNameToDate('note.md')
+
+    const today = moment().format('YYYY-MM-DD')
+    expect(date.format('YYYY-MM-DD')).toBe(today)
+  })
+})
+
 describe('pathToDate', () => {
   it('extracts a date from a path', () => {
     const date = calendar.pathToDate('daily/2024/01/02/note.md')
