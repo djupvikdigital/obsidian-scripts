@@ -78,13 +78,14 @@ function inlineMomentGlobalForBuild() {
       }
 
       return code.replace(
-        "import moment from 'moment'",
+        /^import\s+moment\s+from\s+['"]moment['"]\s*;?\s*/m,
         [
           'const moment = globalThis.moment',
           '',
           'if (!moment) {',
           "  throw new Error('Expected globalThis.moment to be provided at runtime')",
           '}',
+          '',
         ].join('\n'),
       )
     },
@@ -94,21 +95,15 @@ function inlineMomentGlobalForBuild() {
 export default defineConfig(({ command }) => ({
   build: {
     minify: false,
+    outDir: 'dist',
+    lib: {
+      entry: path.resolve(sourceRoot, 'scripts/templater/calendar.js'),
+      name: 'calendar',
+      fileName: 'scripts/templater/calendar',
+      formats: ['es'],
+    },
     rollupOptions: {
-      input: {
-        'scripts/templater/calendar': path.resolve(
-          sourceRoot,
-          'scripts/templater/calendar.js',
-        ),
-      },
-      output: {
-        dir: 'dist',
-        format: 'cjs',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
-      },
+      external: ['moment'],
     },
   },
   plugins:
