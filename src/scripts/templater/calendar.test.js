@@ -6,7 +6,7 @@ import * as calendar from './calendar.js'
 describe('dateToPath', () => {
   it('formats a moment date as a path', () => {
     const date = moment('2024-01-02', 'YYYY-MM-DD', true)
-    expect(calendar.dateToPath(date)).toBe('2024/01/02')
+    expect(calendar.dateToPath(date)).toBe('2024/01/2024-01-02')
   })
 })
 
@@ -44,21 +44,6 @@ describe('fileNameToDate', () => {
 
   it('falls back to today if unable to find date in path', () => {
     const date = calendar.fileNameToDate('note.md')
-
-    const today = moment().format('YYYY-MM-DD')
-    expect(date.format('YYYY-MM-DD')).toBe(today)
-  })
-})
-
-describe('pathToDate', () => {
-  it('extracts a date from a path', () => {
-    const date = calendar.pathToDate('daily/2024/01/02/note.md')
-
-    expect(date.format('YYYY-MM-DD')).toBe('2024-01-02')
-  })
-
-  it('falls back to today if unable to find date in path', () => {
-    const date = calendar.pathToDate('daily/note.md')
 
     const today = moment().format('YYYY-MM-DD')
     expect(date.format('YYYY-MM-DD')).toBe(today)

@@ -21,7 +21,6 @@ const wasmPath = resolveFromHere(
 )
 const templatesPath = resolveFromHere('./templater')
 const snapshotCreationDate = '2024-01-02'
-const snapshotTemplatePath = '2 Kalender/2024/01/02'
 
 /**
  * Recursively gets all files in a directory.
@@ -45,9 +44,7 @@ function createTemplateContext() {
       creation_date() {
         return snapshotCreationDate
       },
-      path() {
-        return snapshotTemplatePath
-      },
+      title: snapshotCreationDate,
     },
     user: {
       calendar,

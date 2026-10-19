@@ -1,6 +1,6 @@
 ---
 created: <% tp.file.creation_date() %>
-date: <%* const dates = tp.user.calendar.getAdjacentDates(tp.user.calendar.pathToDate(tp.file.path())); %><% tp.user.calendar.formatIsoDate(dates.today) %>
+date: <%* const dates = tp.user.calendar.getAdjacentDates(tp.user.calendar.fileNameToDate(tp.file.title)); %><% tp.user.calendar.formatIsoDate(dates.today) %>
 tags:
   - dag
 ---

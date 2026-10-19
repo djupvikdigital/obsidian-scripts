@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-const datePathFormat = 'YYYY/MM/DD'
+const datePathFormat = 'YYYY/MM/YYYY-MM-DD'
 const isoDateFormat = 'YYYY-MM-DD'
 
 /**
@@ -62,30 +62,6 @@ export function fileNameToDate(fileName) {
     if (hasDate) {
       const dateSegment = fileName.slice(0, isoDateFormat.length)
       today = moment(dateSegment, isoDateFormat, true)
-    }
-  }
-  if (!today || !today.isValid()) {
-    today = moment()
-  }
-  return today
-}
-
-/**
- * Get the moment date from a file path.
- *
- * @param {string} path
- * @returns {moment.Moment}
- */
-export function pathToDate(path) {
-  let today
-  if (typeof path === 'string') {
-    const dateIndex = path.search(/\d{4}\/\d{2}\/\d{2}/)
-    if (~dateIndex) {
-      const dateSegment = path.slice(
-        dateIndex,
-        dateIndex + datePathFormat.length,
-      )
-      today = moment(dateSegment, datePathFormat, true)
     }
   }
   if (!today || !today.isValid()) {
