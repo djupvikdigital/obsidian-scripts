@@ -11,4 +11,4 @@ tags:
 
 ## Oppsummering av dagen
 
-[← I går](<2 Kalender/<% tp.user.calendar.dateToPath(dates.yesterday) %>>) | [I morgen →](<2 Kalender/<% tp.user.calendar.dateToPath(dates.tomorrow) %>>)
+[← I går](<% tp.user.calendar.dateToPath(dates.yesterday) %>) | [I morgen →](<% tp.user.calendar.dateToPath(dates.tomorrow) %>)
